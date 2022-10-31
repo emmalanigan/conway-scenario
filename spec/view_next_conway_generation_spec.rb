@@ -37,18 +37,20 @@ describe "viewing the next generation in conway's game of life" do
 end
 
 def view_next_conway_generation(generation)
-  if(generation == [
-    [:empty, :empty, :empty,:empty],
-    [:empty, :alive, :alive,:empty],
-    [:empty, :alive, :alive,:empty],
-    [:empty, :empty, :empty,:empty]
-  ])
-    return generation
+  # How do I return a correct version of the next gen?
+  next_generation = []
+  generation.each do |row|
+    future_row = []
+    row.each do |cell|
+      future_row << conway_rule(cell,number_of_living_neigbours_next_to(cell))
+    end
+    next_generation << future_row
   end
+  next_generation
+end
 
-  [
-    [:empty, :empty, :empty],
-    [:empty, :empty, :empty],
-    [:empty, :empty, :empty]
-  ]
+def conway_rule(cell,number_of_living_neigbours)
+  :empty
+end
+def number_of_living_neigbours_next_to(cell)
 end
