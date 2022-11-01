@@ -1,3 +1,5 @@
+require './game.rb'
+
 describe "viewing the next generation in conway's game of life" do
   it 'stays the same for an empty grid' do
     empty_grid = [
@@ -40,27 +42,27 @@ end
 describe "how to calculate number of live neighbours in a conway grid" do
   it "should tell me there is one live neighbour if one alive in a 2x1 grid" do
     two_by_one_grid = [:empty, :alive]
-    number_of_neighbours = number_of_living_neigbours(two_by_one_grid,row: 0,column: 0)
+    number_of_neighbours = number_of_living_neigbours(two_by_one_grid, row:0, column:0)
     expect(number_of_neighbours).to eq 1
   end
-end
 
-def view_next_conway_generation(generation)
-  next_generation = []
-  generation.each do |row|
-    future_row = []
-    row.each do |cell|
-      future_row << conway_rule(cell,number_of_living_neigbours(cell,row:0,column:0))
-    end
-    next_generation << future_row
+  it "should tell me there is two live neighbours if two alive in a 3x3 grid" do
+    three_by_three_grid = [
+      [:empty, :alive, :empty],
+      [:alive, :empty, :empty],
+      [:empty, :empty, :empty]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:1)
+    expect(number_of_neighbours).to eq 2
   end
-  next_generation
-end
 
-def conway_rule(cell,number_of_living_neigbours)
-  :empty
-end
-
-def number_of_living_neigbours(grid,row:,column:)
-  1
+  it "should tell me there is 3 live neighbours if 3 alive in a 3x3 grid" do
+    three_by_three_grid = [
+      [:empty, :alive, :empty],
+      [:alive, :empty, :alive],
+      [:empty, :empty, :empty]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:1)
+    expect(number_of_neighbours).to eq 3
+  end
 end
