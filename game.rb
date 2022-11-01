@@ -22,17 +22,15 @@ def number_of_living_neigbours(grid, row:, column:)
     1
   else
     neighbours_search.each do |cell|
-        
-     grid.dig(cell)
-      
+        puts cell
+        row= cell[0]
+        column= cell[1]
+        if grid.dig(row,column) == :alive
+            living_count += 1
+        end         
     end
+    living_count
 
-
-    # if grid[row][column+1] && grid[row+1][column] == :alive
-    #     2
-    # else
-        
-    # end
   end
 end
 

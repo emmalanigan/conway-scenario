@@ -56,13 +56,23 @@ describe "how to calculate number of live neighbours in a conway grid" do
     expect(number_of_neighbours).to eq 2
   end
 
-  it "should tell me there is 3 live neighbours if 3 alive in a 3x3 grid" do
+  it "should tell me there is 3 live neighbours if 3 alive in a 3x3 grid - with chosen cell in the middle" do
     three_by_three_grid = [
       [:empty, :alive, :empty],
       [:alive, :empty, :alive],
       [:empty, :empty, :empty]
     ]
     number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:1)
+    expect(number_of_neighbours).to eq 3
+  end
+
+  it "should tell me there is 3 live neighbours if 3 alive in a 3x3 grid with edge cell" do
+    three_by_three_grid = [
+      [:empty, :alive, :empty],
+      [:alive, :alive, :empty],
+      [:empty, :empty, :empty]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:0, column:0)
     expect(number_of_neighbours).to eq 3
   end
 end
