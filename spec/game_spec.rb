@@ -120,4 +120,14 @@ describe "how to calculate number of live neighbours in a conway grid" do
     number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:2)
     expect(number_of_neighbours).to eq 5
   end
+  it "should tell me there is 8 live neighbours if all alive in a 4x4 grid" do
+    three_by_three_grid = [
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:1)
+    expect(number_of_neighbours).to eq 8
+  end
 end
