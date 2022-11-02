@@ -20,9 +20,7 @@ def number_of_living_neigbours(grid, row:, column:)
   neighbours_search = [row-1, row, row+1].product([column-1, column, column+1])
 
    if grid[0].class != Array
-     if grid[column + 1] == :alive || grid[column - 1] == :alive
-      living_count += 1
-     end
+    living_count += 1 if grid[column + 1] == :alive || grid[column - 1] == :alive
    else
     neighbours_search.each do |cell|
         current_row= cell[0]
