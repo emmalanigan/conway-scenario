@@ -41,13 +41,13 @@ end
 
 describe "how to calculate number of live neighbours in a conway grid" do
   it "should tell me there is one live neighbour if one alive in a 2x1 grid" do
-    two_by_one_grid = [:empty, :alive]
+    two_by_one_grid = [[:empty, :alive]]
     number_of_neighbours = number_of_living_neigbours(two_by_one_grid, row:0, column:0)
     expect(number_of_neighbours).to eq 1
   end
 
   it "should tell me there is one live neighbour if one alive in a 2x1 grid" do
-    two_by_one_grid = [:alive, :empty]
+    two_by_one_grid = [[:alive, :empty]]
     number_of_neighbours = number_of_living_neigbours(two_by_one_grid, row:0, column:1)
     expect(number_of_neighbours).to eq 1
   end
