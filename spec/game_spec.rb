@@ -28,7 +28,7 @@ describe "viewing the next generation in conway's game of life" do
   end
 
 
-  it 'should return a non-empty grid when we implement a viable first generation' do
+  xit 'should return a non-empty grid when we implement a viable first generation' do
     viable_grid = [
       [:empty, :empty, :empty,:empty],
       [:empty, :alive, :alive,:empty],
@@ -102,7 +102,7 @@ describe "how to calculate number of live neighbours in a conway grid" do
     expect(number_of_neighbours).to eq 8
   end
 
-  it "should tell me there is 8 live neighbours if all alive in a 3x3 grid with edge cell" do
+  it "should tell me there is 5 live neighbours if all alive in a 3x3 grid with left edge cell" do
     three_by_three_grid = [
       [:alive, :alive, :alive],
       [:empty, :alive, :alive],
@@ -110,5 +110,24 @@ describe "how to calculate number of live neighbours in a conway grid" do
     ]
     number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:0)
     expect(number_of_neighbours).to eq 5
+  end
+  it "should tell me there is 5 live neighbours if all alive in a 3x3 grid with right edge cell" do
+    three_by_three_grid = [
+      [:alive, :alive, :alive],
+      [:alive, :alive, :alive],
+      [:alive, :alive, :alive]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:2)
+    expect(number_of_neighbours).to eq 5
+  end
+  it "should tell me there is 8 live neighbours if all alive in a 4x4 grid" do
+    three_by_three_grid = [
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive],
+      [:alive, :alive, :alive, :alive]
+    ]
+    number_of_neighbours = number_of_living_neigbours(three_by_three_grid, row:1, column:1)
+    expect(number_of_neighbours).to eq 8
   end
 end
