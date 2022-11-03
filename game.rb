@@ -15,19 +15,18 @@ def conway_rule(cell,number_of_living_neigbours)
 end
   
 def number_of_living_neigbours(grid, row:, column:)
-    
   living_count = 0
   neighbours_search = [row-1, row, row+1].product([column-1, column, column+1]) 
-
-    neighbours_search.each do |cell|
-        current_row= cell[0]
-        current_column= cell[1]
-        current_cell_value = grid.dig(current_row,current_column)
-        lookup_cell = [row, column]
-        
-        if current_row>=0 && current_column>=0 && cell != lookup_cell && current_cell_value == :alive            
-            living_count += 1
-        end         
-    end
-    living_count
+  
+  neighbours_search.each do |cell|
+    current_row= cell[0]
+    current_column= cell[1]
+    current_cell_value = grid.dig(current_row,current_column)
+    lookup_cell = [row, column]
+    
+    if current_row>=0 && current_column>=0 && cell != lookup_cell && current_cell_value == :alive            
+        living_count += 1
+    end         
+  end
+  living_count
 end
