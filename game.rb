@@ -22,9 +22,10 @@ def number_of_living_neigbours(grid, row:, column:)
     neighbours_search.each do |cell|
         current_row= cell[0]
         current_column= cell[1]
-        current_cell = [row, column]
+        current_cell_value = grid.dig(current_row,current_column)
+        lookup_cell = [row, column]
         
-        if current_row>=0 && current_column>=0 && cell != current_cell && grid.dig(current_row,current_column) == :alive            
+        if current_row>=0 && current_column>=0 && cell != lookup_cell && current_cell_value == :alive            
             living_count += 1
         end         
     end
